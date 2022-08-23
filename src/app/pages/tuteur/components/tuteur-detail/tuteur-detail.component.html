@@ -1,1 +1,8 @@
-<p>tuteur-detail works!</p>
+<div *ngIf="tuteur; else notExist">
+  <div>{{ tuteur.nom }}</div>
+  <ul>
+    <li *ngFor="let enfant of tuteur.enfants">{{ enfant.nom }}</li>
+  </ul>
+</div>
+
+<ng-template #notExist>Pas de tuteur</ng-template>

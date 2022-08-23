@@ -1,1 +1,17 @@
-<p>tuteur-list works!</p>
+<table>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Prenom</th>
+    <th>Nom</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tuteur of tuteurs" [routerLink]="[tuteur.id]">
+    <td>{{ tuteur.id }}</td>
+    <td>{{ tuteur.prenom }}</td>
+    <td>{{ tuteur.nom }}</td>
+  </tr>
+  </tbody>
+</table>
+
