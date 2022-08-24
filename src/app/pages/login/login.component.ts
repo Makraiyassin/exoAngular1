@@ -1,39 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
-import {Tuteur} from "../../models/tuteur.dto";
+import {Tuteur} from "../tuteur/models/tuteur.dto";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Component({
-  selector: 'app-tuteur-list',
-  templateUrl: './tuteur-list.component.html',
-  styleUrls: ['./tuteur-list.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class TuteurListComponent implements OnInit {
-  private getAll$: Observable<any[]> // observable ??????????????
-  private _tuteurs: Tuteur[] = [];
-
+export class LoginComponent implements OnInit {
+  private getToken$: Observable<any> // observable ??????????????
   localUrl = "http://localhost:8080"
   remoteUrl = "https://exo-nursery.herokuapp.com"
-  jsonServer = "http://localhost:3000"
 
   token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwicm9sZXMiOlsiUk9MRV9QRVJTT05ORUwiXSwiZXhwIjoxNjYxMzc5MDE2fQ.VGA_voBmgjNjpoGNetPsmfium60vxzR9ftbrArafl-spqH07MNGDr36ZIt9NmPpMOuqcPSVSXwGAF-JcxqT72g"
   params = new HttpHeaders()
     .append("Authorization", this.token)
 
-  get tuteurs(): Tuteur[] {
-    return this._tuteurs;
-  }
-
   constructor(private _http: HttpClient) {
-    this.getAll$ = this._http.get<Tuteur[]>(`${this.remoteUrl}/tuteur`, {headers: this.params});
+    this.getToken$ = this._http.post<String>(`${this.remoteUrl}/user/login`, {"username": "a" , "password":"a"});
   }
 
   ngOnInit(): void {
-    this.getAll$.subscribe(data => {
-      this._tuteurs = [...data]
-      console.log(data);
+    this.getToken$.subscribe(token => {
+      localStorage.setItem("token",token.token)
+      console.log(token);
     });
-
   }
 
 }
