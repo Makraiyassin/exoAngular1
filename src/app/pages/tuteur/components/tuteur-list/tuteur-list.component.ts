@@ -18,7 +18,8 @@ export class TuteurListComponent implements OnInit {
 
   token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwicm9sZXMiOlsiUk9MRV9QRVJTT05ORUwiXSwiZXhwIjoxNjYxMzc5MDE2fQ.VGA_voBmgjNjpoGNetPsmfium60vxzR9ftbrArafl-spqH07MNGDr36ZIt9NmPpMOuqcPSVSXwGAF-JcxqT72g"
   params = new HttpHeaders()
-    .append("Authorization", this.token)
+    // .append("Authorization", this.token)
+    .append("Authorization", localStorage.getItem("token")!)
 
   get tuteurs(): Tuteur[] {
     return this._tuteurs;

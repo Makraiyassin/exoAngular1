@@ -1,0 +1,11 @@
+<div  class="d-flex flex-wrap justify-content-center w-75 mx-auto ">
+  <div  *ngFor="let enfant of enfants" class="card m-1" style="width: 18rem;">
+    <img src="https://images.pexels.com/photos/1912868/pexels-photo-1912868.jpeg?auto=compress&cs=tinysrgb&w=1600"/>
+    <div class="card-body">
+      <h5 class="card-title">{{enfant.nom}}</h5>
+      <p class="card-text">date de naissance : {{enfant.dateNaiss}}</p>
+      <p class="card-text">l'enfant {{enfant.proprete ? 'est propre' :'n\'est pas propre'}}</p>
+      <p *ngFor="let allergie of enfant.allergies" class="card-text">allergie: {{allergie}} </p>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,8 @@ import {LoginComponent} from "./pages/login/login.component";
 
 const routes: Routes = [
   { path: 'tuteur', loadChildren: () => import('./pages/tuteur/tuteur.module').then(m => m.TuteurModule) }, // loadchildren, lazy ?????????
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'enfants', loadChildren: () => import('./pages/enfant/enfant.module').then(m => m.EnfantModule) }
 ];
 
 @NgModule({
