@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {SessionService} from "./modules/security/services/session.service";
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'exoAngular1';
+  user : any | null = null;
+
+  constructor(private _http: HttpClient, private _session: SessionService) {
+  }
+
+  logout() {
+    this._session.logout();
+  }
+
+  ngOnInit() {
+    this._session.User$.subscribe(user => this.user = user);
+  }
 }

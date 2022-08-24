@@ -1,1 +1,8 @@
+<nav>
+  <ul>
+    <li *ngIf="!user" routerLink="/sign-in">Login</li>
+    <li *ngIf="user" (click)="logout()">Logout</li>
+  </ul>
+</nav>
+
 <router-outlet></router-outlet>
