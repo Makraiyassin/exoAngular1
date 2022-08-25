@@ -1,8 +1,2 @@
-<nav>
-  <ul>
-    <li *ngIf="!token" routerLink="/sign-in">Login</li>
-    <li *ngIf="token" (click)="logout()">Logout</li>
-  </ul>
-</nav>
-
+<app-navbar [token]="token"></app-navbar>
 <router-outlet></router-outlet>

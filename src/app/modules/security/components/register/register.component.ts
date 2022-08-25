@@ -30,7 +30,13 @@ export class RegisterComponent implements OnInit {
     console.log(this.registerForm.value);
     this._auth.register(this.registerForm.value).subscribe(data=>{
       console.log(data)
-      this._router.navigate(["/sign-in"])
+      this._auth.login(
+        this.registerForm.value.username,
+        this.registerForm.value.password
+      ).subscribe(data =>{
+        this._session.login(data.token)
+        this._router.navigate(["/"])
+      })
     })
   }
 

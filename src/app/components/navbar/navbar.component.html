@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Nursery App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Acceuil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/tuteur">Tuteurs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/enfant">Enfants</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <form *ngIf="!token" class="d-flex">
+            <input  [(ngModel)]="username" name="username" class="form-control me-1" type="username" placeholder="username">
+            <input  [(ngModel)]="password" name="password" class="form-control me-1" type="password" placeholder="password">
+            <button class="btn btn-outline-success" (click)="login()">Login</button>
+          </form>
+          <button *ngIf="token" (click)="logout()" class="btn btn-outline-danger" type="submit">logout</button>
+        </li>
+        <li class="nav-item ml-register">
+          <button *ngIf="!token" class="btn btn-outline-success" routerLink="/register">Register</button>
+        </li>
+      </ul>
+    </div>
+
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>

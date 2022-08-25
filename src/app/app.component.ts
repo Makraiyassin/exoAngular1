@@ -18,10 +18,6 @@ export class AppComponent {
   ) {
   }
 
-  logout() {
-    this._session.logout();
-  }
-
   ngOnInit() {
     this._session.Token$.subscribe(token => this.token = token);
   }
