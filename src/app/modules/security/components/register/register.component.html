@@ -1,1 +1,19 @@
-<p>register works!</p>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="form-input">
+    <label for="username">Username: </label>
+    <input type="text" name="username" id="username" formControlName="username">
+  </div>
+  <div class="form-input">
+    <label for="password">Password: </label>
+    <input type="password" name="password" id="password" formControlName="password">
+    <div *ngIf="registerForm.get('password')?.errors">
+      {{ registerForm.get('password')?.errors |json }}
+    </div>
+  </div>
+  <div class="form-input">
+    <label for="address">Address: </label>
+    <input type="text" name="address" id="address" formControlName="address">
+  </div>
+
+  <button type="submit" *ngIf="registerForm.valid">Register</button>
+</form>

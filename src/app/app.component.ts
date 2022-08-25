@@ -10,9 +10,12 @@ import {SessionService} from "./modules/security/services/session.service";
 })
 export class AppComponent {
   title = 'exoAngular1';
-  user : any | null = null;
+  token : any | null = null;
 
-  constructor(private _http: HttpClient, private _session: SessionService) {
+  constructor(
+    private _http: HttpClient,
+    private _session: SessionService
+  ) {
   }
 
   logout() {
@@ -20,6 +23,6 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this._session.User$.subscribe(user => this.user = user);
+    this._session.Token$.subscribe(token => this.token = token);
   }
 }

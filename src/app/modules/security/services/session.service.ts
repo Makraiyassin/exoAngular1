@@ -5,23 +5,23 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SessionService {
-  private user$: BehaviorSubject<any | null> = new BehaviorSubject(null);
+  private token$: BehaviorSubject<any | null> = new BehaviorSubject(null);
 
-  get User$(): Observable<any | null> { return this.user$.asObservable(); }
+  get Token$(): Observable<any | null> { return this.token$.asObservable(); }
 
   constructor() {
-    const user = localStorage.getItem("token");
-    if (user) {
-      this.user$.next(JSON.parse(user));
+    const token = localStorage.getItem("token");
+    if (token) {
+      this.token$.next(JSON.parse(token));
     }
   }
 
   login(token: String) {
-    this.user$.next(token);
+    this.token$.next(token);
     localStorage.setItem("token", JSON.stringify(token));
   }
   logout() {
-    this.user$.next(null);
+    this.token$.next(null);
     localStorage.removeItem("token");
   }
 }

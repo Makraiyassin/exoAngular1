@@ -1,7 +1,7 @@
 <nav>
   <ul>
-    <li *ngIf="!user" routerLink="/sign-in">Login</li>
-    <li *ngIf="user" (click)="logout()">Logout</li>
+    <li *ngIf="!token" routerLink="/sign-in">Login</li>
+    <li *ngIf="token" (click)="logout()">Logout</li>
   </ul>
 </nav>
 

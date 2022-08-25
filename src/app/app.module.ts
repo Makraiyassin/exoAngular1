@@ -7,6 +7,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import { LoginComponent } from './pages/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {SecurityModule} from "./modules/security/security.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {SecurityModule} from "./modules/security/security.module";
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
-    SecurityModule
+    SecurityModule,
+    BrowserAnimationsModule
 
   ],
   providers: [],

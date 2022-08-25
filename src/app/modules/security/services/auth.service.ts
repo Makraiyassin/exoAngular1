@@ -13,5 +13,9 @@ export class AuthService {
     // const params = new HttpParams({fromObject: {username, password}});
     return this._http.post("https://exo-nursery.herokuapp.com/user/login", {"username":username,"password":password});
   }
+
+  register(registerForm : any) : Observable<any>{
+    return this._http.post("https://exo-nursery.herokuapp.com/user/register", {"username":registerForm.username,"password":registerForm.password});
+  }
 }
 
